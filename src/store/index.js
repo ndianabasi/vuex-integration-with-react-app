@@ -1,11 +1,13 @@
 import { createApp } from "vue";
-import { createStore } from "vuex";
+import { createStore, createLogger } from "vuex";
 
 // Create a new store instance.
 const store = createStore({
   state() {
     return {
       count: 0,
+      dialogOpen: false,
+      form: { firstName: "", lastName: "", age: 0 },
       tableData: [
         { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
         { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
@@ -22,11 +24,25 @@ const store = createStore({
   mutations: {
     increment(state) {
       state.count++;
+    },
+    toggleDialog(state, payload) {
+      state.dialogOpen = payload;
+    },
+    setForm(state, payload) {
+      state.form = payload;
+    },
+    submitPerson(state, payload) {
+      // Get last ID
+      const IDs = state.tableData.map(person => person.id);
+      let maxID = Math.max(...IDs);
+      maxID++;
+      state.tableData.push({ id: maxID, ...payload });
     }
   },
   getters: {
     getCount: state => state.count,
     getRows: state => state.tableData,
+    isDialogOpened: state => state.dialogOpen,
     getColumns: () => [
       { field: "id", headerName: "ID", width: 70 },
       { field: "firstName", headerName: "First name", width: 130 },
@@ -46,7 +62,8 @@ const store = createStore({
         valueGetter: params => `${params.getValue("firstName") || ""} ${params.getValue("lastName") || ""}`
       }
     ]
-  }
+  },
+  plugins: [createLogger()]
 });
 
 export default store;

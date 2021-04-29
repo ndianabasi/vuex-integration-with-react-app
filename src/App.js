@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import { DataGrid } from "@material-ui/data-grid";
+
+import FormModal from "./components/FormModal";
 
 // import Vuex store
 import store from "./store";
@@ -23,18 +25,29 @@ function Copyright() {
 
 export function Attribution() {
   return (
-    <React.Fragment>
-      <p style={{ textAlign: "center", marginBottom: "3rem" }}>
-        Forked from:{" "}
-        <Link href="https://github.com/mui-org/material-ui/tree/master/examples/create-react-app">material-ui.com's Create React App example</Link>
-      </p>
-    </React.Fragment>
+    <p style={{ textAlign: "center", marginBottom: "3rem" }}>
+      Forked from:{" "}
+      <Link href="https://github.com/mui-org/material-ui/tree/master/examples/create-react-app">material-ui.com's Create React App example</Link>
+    </p>
   );
 }
 
 export default function App() {
   const rows = store.getters["getRows"];
   const columns = store.getters["getColumns"];
+  const [persons, setPersons] = useState(rows);
+  const [dataLoading, setDataLoading] = useState(false);
+
+  store.subscribe((mutation, state) => {
+    if (mutation.type === "submitPerson") {
+      setPersons([]);
+      setDataLoading(true);
+      setTimeout(() => {
+        setPersons(state.tableData);
+        setDataLoading(false);
+      }, 1000);
+    }
+  });
 
   return (
     <Container maxWidth="lg">
@@ -43,8 +56,9 @@ export default function App() {
           Create React App v4-beta example
         </Typography>
         <Attribution />
+        <FormModal />
         <div style={{ height: 400, width: "100%" }}>
-          <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+          <DataGrid loading={dataLoading} rows={persons} columns={columns} pageSize={5} checkboxSelection />
         </div>
         <Copyright />
       </Box>
