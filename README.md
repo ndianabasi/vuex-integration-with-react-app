@@ -1,25 +1,22 @@
-# Create React App example
+# React App with Vuex
+
+I have been wondering if Vuex will place nicely with React JS. This repo just proved that. Javascript is Javascript irrespective of the framework. Vuex worked so perfectly within the React App as demonstrated in the `src/App.js` file.
 
 ## How to use
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+Clone this repo.
 
 ```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
+git clone https://github.com/ndianabasi/material-ui-create-react-app
+cd material-ui-create-react-app
 ```
 
 Install it and run:
 
 ```sh
-npm install
-npm start
+yarn install
+yarn serve
 ```
 
-or:
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
+## Attribution
+Forked from: https://github.com/mui-org/material-ui/tree/master/examples/create-react-app
