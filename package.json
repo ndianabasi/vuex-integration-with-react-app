@@ -1,0 +1,33 @@
+{
+  "name": "create-react-app",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/data-grid": "latest",
+    "clsx": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "latest",
+    "vue": "^3.0.11",
+    "vuex": "^4.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
