@@ -1,14 +1,14 @@
 # Integrating Vuex into React App
 
-I have been wondering if Vuex will play nicely with React JS. This repo just proved that. Javascript is Javascript irrespective of the framework. Vuex worked so perfectly within the React App as demonstrated in the `src/App.js` file.
+I have been wondering if `Vuex` will play nicely with `React JS`. This repo just proved that. Javascript is Javascript irrespective of the framework. Aside from reactivity issues, everything worked smoothly. `React` components were able to consumed data directly from `Vuex` getters. Please see the Lessons Learnt section below for detailed analysis of the integration.
 
 ## How to use
 
 Clone this repo.
 
 ```sh
-git clone https://github.com/ndianabasi/material-ui-create-react-app
-cd material-ui-create-react-app
+git clone https://github.com/vuex-integration-with-react-app
+cd vuex-integration-with-react-app
 ```
 
 Install it and run:
