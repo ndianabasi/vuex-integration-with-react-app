@@ -1,6 +1,6 @@
 # React App with Vuex
 
-I have been wondering if Vuex will place nicely with React JS. This repo just proved that. Javascript is Javascript irrespective of the framework. Vuex worked so perfectly within the React App as demonstrated in the `src/App.js` file.
+I have been wondering if Vuex will play nicely with React JS. This repo just proved that. Javascript is Javascript irrespective of the framework. Vuex worked so perfectly within the React App as demonstrated in the `src/App.js` file.
 
 ## How to use
 
